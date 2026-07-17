@@ -203,9 +203,9 @@ if(form){
 
         if(validateForm()){
 
-            console.log("Validation Passed");
+    registerCandidate();
 
-        }
+}
 
     });
 
@@ -379,5 +379,90 @@ function validateForm(){
 
 
     return true;
+
+}
+/* =====================================================
+   REGISTER CANDIDATE API
+===================================================== */
+
+async function registerCandidate(){
+
+    const formData={
+
+        shaliniID:clean($("shaliniID").value),
+
+        fullName:clean($("fullName").value),
+
+        mobile:clean($("mobile").value),
+
+        email:clean($("email").value),
+
+        dob:$("dob").value,
+
+        gender:$("gender").value,
+
+        password:$("password").value
+
+    };
+
+    try{
+
+        const response=await fetch(API_URL,{
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":"application/json"
+
+            },
+
+            body:JSON.stringify({
+
+                action:"registerCandidate",
+
+                data:formData
+
+            })
+
+        });
+
+        const result=await response.json();
+
+        if(result.success){
+
+            alert(
+
+                "Registration Successful!\n\nCandidate ID : "
+
+                + result.data.candidateID
+
+            );
+
+            $("registrationForm").reset();
+
+            updateProgress();
+
+        }
+
+        else{
+
+            alert(result.message);
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+
+            "Unable to connect to server."
+
+        );
+
+    }
 
 }
