@@ -191,6 +191,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
     updateProgress();
+   /* Registration Form */
+
+const form=$("registrationForm");
+
+if(form){
+
+    form.addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        if(validateForm()){
+
+            console.log("Validation Passed");
+
+        }
+
+    });
+
+}
 
 });
 /* =====================================================
