@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>API Test</title>
+</head>
+
+<body>
+
+<h2>UCPP API Test</h2>
+
+<button onclick="testAPI()">
+Register Test Candidate
+</button>
+
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxUjX0EjxsxBxd7qu3CMwZFIDuNxWYBHwwzfRhaYL6AbRbGTjKwLcz3wOXk_jln7shJdA/exec";
+
+
+function testAPI(){
+
+
+const data = {
+
+action:"registerCandidate",
+
+data:{
+
+shaliniID:"SH1006",
+
+fullName:"Frontend Test User",
+
+mobile:"9876543215",
+
+email:"frontend@test.com",
+
+dob:"2001-01-01",
+
+gender:"Male",
+
+password:"Test@123"
+
+}
+
+};
+
+
+fetch(API_URL,{
+
+method:"POST",
+
+body:JSON.stringify(data)
+
+})
+
+.then(response=>response.json())
+
+.then(result=>{
+
+
+console.log(result);
+
+
+alert(
+JSON.stringify(result)
+);
+
+
+})
+
+.catch(error=>{
+
+console.log(error);
+
+alert(error);
+
+});
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
