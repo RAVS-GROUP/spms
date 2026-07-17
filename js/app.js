@@ -407,25 +407,19 @@ async function registerCandidate(){
 
     try{
 
-        const response=await fetch(API_URL,{
+        const response = await fetch(API_URL,{
 
-            method:"POST",
+    method:"POST",
 
-            headers:{
+    body:JSON.stringify({
 
-                "Content-Type":"application/json"
+        action:"registerCandidate",
 
-            },
+        data:formData
 
-            body:JSON.stringify({
+    })
 
-                action:"registerCandidate",
-
-                data:formData
-
-            })
-
-        });
+});
 
         const result=await response.json();
 
