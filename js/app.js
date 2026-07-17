@@ -193,3 +193,172 @@ document.addEventListener("DOMContentLoaded",()=>{
     updateProgress();
 
 });
+/* =====================================================
+   VALIDATION
+===================================================== */
+
+/**
+ * Show Alert
+ */
+
+function showAlert(message){
+
+    alert(message);
+
+}
+
+
+/**
+ * Validate Email
+ */
+
+function validEmail(email){
+
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return regex.test(clean(email));
+
+}
+
+
+/**
+ * Validate Mobile
+ */
+
+function validMobile(mobile){
+
+    return /^[6-9]\d{9}$/.test(clean(mobile));
+
+}
+
+
+/**
+ * Validate Password
+ */
+
+function validPassword(password){
+
+    const regex=
+
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()_\-+=]).{8,}$/;
+
+    return regex.test(password);
+
+}
+
+
+/**
+ * Validate Form
+ */
+
+function validateForm(){
+
+    const shaliniID=clean($("shaliniID").value);
+
+    const fullName=clean($("fullName").value);
+
+    const mobile=clean($("mobile").value);
+
+    const email=clean($("email").value);
+
+    const dob=clean($("dob").value);
+
+    const gender=clean($("gender").value);
+
+    const password=$("password").value;
+
+    const confirmPassword=$("confirmPassword").value;
+
+
+    if(shaliniID===""){
+
+        showAlert("Please enter Shalini ID.");
+
+        return false;
+
+    }
+
+
+    if(fullName===""){
+
+        showAlert("Please enter Full Name.");
+
+        return false;
+
+    }
+
+
+    if(!validMobile(mobile)){
+
+        showAlert("Please enter a valid Mobile Number.");
+
+        return false;
+
+    }
+
+
+    if(!validEmail(email)){
+
+        showAlert("Please enter a valid Email Address.");
+
+        return false;
+
+    }
+
+
+    if(dob===""){
+
+        showAlert("Please select Date of Birth.");
+
+        return false;
+
+    }
+
+
+    if(gender===""){
+
+        showAlert("Please select Gender.");
+
+        return false;
+
+    }
+
+
+    if(!validPassword(password)){
+
+        showAlert(
+
+        "Password must contain minimum 8 characters with uppercase, lowercase, number and special character."
+
+        );
+
+        return false;
+
+    }
+
+
+    if(password!==confirmPassword){
+
+        showAlert("Passwords do not match.");
+
+        return false;
+
+    }
+
+
+    if(!$("terms").checked){
+
+        showAlert(
+
+        "Please accept Terms & Conditions."
+
+        );
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
