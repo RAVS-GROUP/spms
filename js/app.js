@@ -222,7 +222,15 @@ if(form){
 
 function showAlert(message){
 
-    alert(message);
+    showToast(
+
+        "Validation",
+
+        message,
+
+        "warning"
+
+    );
 
 }
 
@@ -407,29 +415,37 @@ async function registerCandidate(){
 
     try{
 
+        setButtonLoading(true);
+
         const response = await fetch(API_URL,{
 
-    method:"POST",
+            method:"POST",
 
-    body:JSON.stringify({
+            body:JSON.stringify({
 
-        action:"registerCandidate",
+                action:"registerCandidate",
 
-        data:formData
+                data:formData
 
-    })
+            })
 
-});
+        });
 
-        const result=await response.json();
+        const result = await response.json();
+
+        setButtonLoading(false);
 
         if(result.success){
 
-            alert(
+            showToast(
 
-                "Registration Successful!\n\nCandidate ID : "
+                "Registration Successful",
 
-                + result.data.candidateID
+                "Candidate ID : " +
+
+                result.data.candidateID,
+
+                "success"
 
             );
 
@@ -437,11 +453,25 @@ async function registerCandidate(){
 
             updateProgress();
 
+            setTimeout(()=>{
+
+                window.location.href="login.html";
+
+            },3000);
+
         }
 
         else{
 
-            alert(result.message);
+            showToast(
+
+                "Registration Failed",
+
+                result.message,
+
+                "error"
+
+            );
 
         }
 
@@ -451,11 +481,97 @@ async function registerCandidate(){
 
         console.error(error);
 
-        alert(
+        setButtonLoading(false);
 
-            "Unable to connect to server."
+        showToast(
+
+            "Connection Error",
+
+            "Unable to connect to server.",
+
+            "error"
 
         );
+
+    }
+
+}
+/* =====================================================
+   TOAST NOTIFICATION
+===================================================== */
+
+function showToast(title, message, type = "success") {
+
+    const oldToast = document.querySelector(".toast");
+
+    if (oldToast) {
+        oldToast.remove();
+    }
+
+    const toast = document.createElement("div");
+
+    toast.className = `toast ${type}`;
+
+    toast.innerHTML = `
+
+        <div class="toast-title">${title}</div>
+
+        <div class="toast-message">${message}</div>
+
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+
+        toast.classList.add("show");
+
+    }, 100);
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+        setTimeout(() => {
+
+            toast.remove();
+
+        }, 400);
+
+    }, 3500);
+
+}
+/* =====================================================
+   BUTTON LOADING
+===================================================== */
+
+function setButtonLoading(isLoading){
+
+    const btn = $("registerBtn");
+
+    if(!btn) return;
+
+    if(isLoading){
+
+        btn.disabled = true;
+
+        btn.classList.add("btn-loading");
+
+        btn.innerHTML =
+
+        `<span class="loader"></span> Creating Profile...`;
+
+    }
+
+    else{
+
+        btn.disabled = false;
+
+        btn.classList.remove("btn-loading");
+
+        btn.innerHTML =
+
+        "Create Your Profile";
 
     }
 
