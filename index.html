@@ -3,55 +3,747 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>SPMS - Shalini Placement Management System</title>
+    <title>Create Profile | Udayan Care Placement Portal</title>
 
-<link rel="stylesheet" href="css/style.css">
+    <meta name="description"
+          content="Register with Udayan Care Placement Portal and build your professional digital profile.">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <!-- Favicon -->
+
+    <link rel="icon"
+          href="assets/favicon.ico">
 
 </head>
 
 <body>
 
-<header>
 
-<h1>Shalini Placement Management System</h1>
+<!-- ===================================================
+     HEADER
+==================================================== -->
 
-<p>Empowering Careers | Udayan Care</p>
+<header class="header">
+
+    <div class="container">
+
+        <nav class="navbar">
+
+            <!-- Logo -->
+
+            <a href="index.html"
+               class="logo">
+
+                <img src="images/logo.png"
+                     alt="Udayan Care Logo">
+
+                <div>
+
+                    <h2>UCPP</h2>
+
+                    <span>Udayan Care Placement Portal</span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Navigation -->
+
+            <div class="nav-menu">
+
+                <a href="index.html">Home</a>
+
+                <a href="register.html"
+                   class="active">
+
+                    Register
+
+                </a>
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+                <a href="jobs.html">
+
+                    Jobs
+
+                </a>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
 
 </header>
 
-<main>
 
-<div class="home-card">
+<!-- ===================================================
+     PAGE BANNER
+==================================================== -->
 
-<h2>Welcome</h2>
+<section class="page-banner">
 
-<p>
+    <div class="container">
 
-Welcome to the Shalini Placement Management System.
+        <h1>Create Your Profile</h1>
 
-</p>
+        <p>
 
-<div class="buttons">
+            Register once, build your professional profile and
+            access verified job opportunities across India.
 
-<a href="register.html" class="btn">Candidate Registration</a>
+        </p>
 
-<a href="login.html" class="btn">Candidate Login</a>
+        <div class="breadcrumb">
+
+            <a href="index.html">
+
+                Home
+
+            </a>
+
+            <span> / </span>
+
+            <span>
+
+                Register
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     REGISTRATION SECTION
+==================================================== -->
+
+<section class="auth-section">
+
+    <div class="container">
+
+        <div class="auth-wrapper">
+
+            <div class="auth-card">
+
+<!-- ===================================================
+     LEFT PANEL
+==================================================== -->
+
+<div class="auth-left fade-in">
+
+    <img src="images/logo.png"
+         alt="Udayan Care Logo"
+         style="width:90px; margin-bottom:25px;">
+
+    <h2>
+
+        Build Your Career with Udayan Care
+
+    </h2>
+
+    <p>
+
+        Create your professional digital profile, explore
+        verified job opportunities, apply online and track
+        your placement journey from one secure platform.
+
+    </p>
+
+
+    <ul class="auth-features">
+
+        <li>
+
+            ✅ One-Time Registration
+
+        </li>
+
+        <li>
+
+            ✅ Professional Digital Resume
+
+        </li>
+
+        <li>
+
+            ✅ Verified Employers
+
+        </li>
+
+        <li>
+
+            ✅ Verified Job Opportunities
+
+        </li>
+
+        <li>
+
+            ✅ Easy Online Applications
+
+        </li>
+
+        <li>
+
+            ✅ Track Interviews & Selection
+
+        </li>
+
+        <li>
+
+            ✅ Absolutely Free for Candidates
+
+        </li>
+
+    </ul>
 
 </div>
 
+
+<!-- ===================================================
+     RIGHT PANEL
+==================================================== -->
+
+<div class="auth-right fade-up">
+
+    <h2 class="auth-title">
+
+        Candidate Registration
+
+    </h2>
+
+    <p class="auth-subtitle">
+
+        Fill in your basic details to create your profile.
+        You can complete the remaining profile after logging in.
+
+    </p>
+
+
+    <!-- Progress -->
+
+    <div class="progress-box">
+
+        <div class="progress-title">
+
+            <span>
+
+                Profile Completion
+
+            </span>
+
+            <span id="progressText">
+
+                20%
+
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div class="progress-bar"
+                 id="progressBar">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Registration Form Starts -->
+
+    <form id="registrationForm"
+          autocomplete="off">
+      <!-- ===================================================
+     PERSONAL INFORMATION
+==================================================== -->
+
+<div class="form-section">
+
+    <h3 class="form-section-title">
+        Personal Information
+    </h3>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label class="form-label" for="shaliniID">
+
+                Shalini ID
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="text"
+                id="shaliniID"
+                name="shaliniID"
+                class="form-control"
+                placeholder="Enter Shalini ID"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label" for="fullName">
+
+                Full Name
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="form-control"
+                placeholder="Enter Full Name"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label" for="mobile">
+
+                Mobile Number
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                maxlength="10"
+                class="form-control"
+                placeholder="9876543210"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label" for="email">
+
+                Email Address
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="example@email.com"
+                required>
+
+        </div>
+
+    </div>
+
 </div>
 
-</main>
 
-<footer>
+<!-- ===================================================
+     PERSONAL DETAILS
+==================================================== -->
 
-<p>© 2026 Udayan Care | SPMS Version 1.0</p>
+<div class="form-section">
+
+    <h3 class="form-section-title">
+        Personal Details
+    </h3>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label class="form-label" for="dob">
+
+                Date of Birth
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="date"
+                id="dob"
+                name="dob"
+                class="form-control"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label" for="gender">
+
+                Gender
+                <span class="required">*</span>
+
+            </label>
+
+            <select
+                id="gender"
+                name="gender"
+                class="form-control"
+                required>
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option value="Male">
+                    Male
+                </option>
+
+                <option value="Female">
+                    Female
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================
+     SECURITY
+==================================================== -->
+
+<div class="form-section">
+
+    <h3 class="form-section-title">
+        Account Security
+    </h3>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label class="form-label" for="password">
+
+                Password
+                <span class="required">*</span>
+
+            </label>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Create Password"
+                    required>
+
+                <span
+                    class="password-toggle"
+                    id="togglePassword">
+
+                    👁
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="form-label" for="confirmPassword">
+
+                Confirm Password
+                <span class="required">*</span>
+
+            </label>
+
+            <div class="password-box">
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-control"
+                    placeholder="Confirm Password"
+                    required>
+
+                <span
+                    class="password-toggle"
+                    id="toggleConfirmPassword">
+
+                    👁
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================
+     TERMS & CONDITIONS
+==================================================== -->
+
+<div class="form-group checkbox">
+
+    <input
+        type="checkbox"
+        id="terms"
+        required>
+
+    <label for="terms">
+
+        I agree to the
+        <a href="#">
+            Terms & Conditions
+        </a>
+        and
+        <a href="#">
+            Privacy Policy
+        </a>.
+
+    </label>
+
+</div>
+
+
+<!-- ===================================================
+     SUBMIT BUTTON
+==================================================== -->
+
+<div class="form-actions">
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+        id="registerBtn">
+
+        Create Your Profile
+
+    </button>
+
+</div>
+
+
+<!-- ===================================================
+     LOGIN LINK
+==================================================== -->
+
+<div class="auth-footer">
+
+    Already have an account?
+
+    <a href="login.html">
+
+        Candidate Login
+
+    </a>
+
+</div>
+
+</form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     FOOTER
+==================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- About -->
+
+            <div>
+
+                <h3>
+
+                    Udayan Care Placement Portal
+
+                </h3>
+
+                <p>
+
+                    Empowering young lives through employment by
+                    connecting talented candidates with trusted
+                    employers across India.
+
+                </p>
+
+            </div>
+
+
+            <!-- Quick Links -->
+
+            <div>
+
+                <h4>
+
+                    Quick Links
+
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+                    <a href="jobs.html">
+
+                        Jobs
+
+                    </a>
+
+                    <a href="login.html">
+
+                        Candidate Login
+
+                    </a>
+
+                    <a href="contact.html">
+
+                        Contact
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+                <p>
+
+                    Udayan Care
+
+                </p>
+
+                <p>
+
+                    Placement Department
+
+                </p>
+
+                <p>
+
+                    Email:
+                    placement@udayancare.org
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-divider"></div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                © 2026 Udayan Care. All Rights Reserved.
+
+            </div>
+
+            <div>
+
+                An Initiative of Udayan Care
+
+            </div>
+
+        </div>
+
+    </div>
 
 </footer>
+
+
+<!-- ===================================================
+     CONFIG
+==================================================== -->
+
+<script src="api/config.js"></script>
+
+
+<!-- ===================================================
+     APPLICATION SCRIPT
+==================================================== -->
+
+<script src="js/app.js"></script>
 
 </body>
 
