@@ -576,3 +576,219 @@ function setButtonLoading(isLoading){
     }
 
 }
+
+/* =====================================================
+   LOGIN MODULE
+===================================================== */
+
+/**
+ * Validate Login Form
+ */
+function validateLoginForm() {
+
+    const shaliniID = clean($("loginShaliniID").value);
+    const password = $("loginPassword").value;
+
+    if (!shaliniID) {
+
+        showAlert("Please enter your Shalini ID.");
+        $("loginShaliniID").focus();
+        return false;
+
+    }
+
+    if (!password) {
+
+        showAlert("Please enter your Password.");
+        $("loginPassword").focus();
+        return false;
+
+    }
+
+    return true;
+
+}
+
+
+/**
+ * Login Button Loading
+ */
+function setLoginButtonLoading(isLoading) {
+
+    const btn = $("loginBtn");
+
+    if (!btn) return;
+
+    if (isLoading) {
+
+        btn.disabled = true;
+
+        btn.classList.add("btn-loading");
+
+        btn.innerHTML =
+            `<span class="loader"></span> Logging In...`;
+
+    }
+    else {
+
+        btn.disabled = false;
+
+        btn.classList.remove("btn-loading");
+
+        btn.innerHTML = "Login";
+
+    }
+
+}
+
+
+/**
+ * Candidate Login
+ */
+async function loginCandidate() {
+
+    const formData = {
+
+        shaliniID: clean(
+            $("loginShaliniID").value
+        ),
+
+        password:
+            $("loginPassword").value
+
+    };
+
+    try {
+
+        setLoginButtonLoading(true);
+
+        const response = await fetch(API_URL, {
+
+            method: "POST",
+
+            body: JSON.stringify({
+
+                action: "loginCandidate",
+
+                data: formData
+
+            })
+
+        });
+
+        const result = await response.json();
+
+        setLoginButtonLoading(false);
+
+        if (result.success) {
+
+            // Session
+
+            sessionStorage.setItem(
+                "candidateID",
+                result.data.candidateID
+            );
+
+            sessionStorage.setItem(
+                "shaliniID",
+                result.data.shaliniID
+            );
+
+            sessionStorage.setItem(
+                "candidateName",
+                result.data.fullName
+            );
+
+            // Remember Me
+
+            if ($("rememberMe").checked) {
+
+                localStorage.setItem(
+                    "rememberShaliniID",
+                    result.data.shaliniID
+                );
+
+            }
+            else {
+
+                localStorage.removeItem(
+                    "rememberShaliniID"
+                );
+
+            }
+
+            showToast(
+
+                "Login Successful",
+
+                "Welcome " +
+                result.data.fullName,
+
+                "success"
+
+            );
+
+            $("loginForm").reset();
+
+            setTimeout(function () {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }, 2000);
+
+        }
+        else {
+
+            showToast(
+
+                "Login Failed",
+
+                result.message,
+
+                "error"
+
+            );
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(error);
+
+        setLoginButtonLoading(false);
+
+        showToast(
+
+            "Connection Error",
+
+            "Unable to connect to server.",
+
+            "error"
+
+        );
+
+    }
+
+}
+
+
+/**
+ * Load Remember Me
+ */
+function loadRememberMe() {
+
+    const savedID = localStorage.getItem(
+        "rememberShaliniID"
+    );
+
+    if (savedID && $("loginShaliniID")) {
+
+        $("loginShaliniID").value = savedID;
+
+        $("rememberMe").checked = true;
+
+    }
+
+}
