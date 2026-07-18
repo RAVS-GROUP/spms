@@ -2039,3 +2039,85 @@ textarea.form-control{
     }
 
 }
+
+/* ==========================================
+   LOGIN PAGE
+========================================== */
+
+.login-options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:20px 0;
+
+    font-size:14px;
+
+}
+
+.remember-me{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    color:#555;
+
+}
+
+.remember-me input{
+
+    width:auto;
+
+    margin:0;
+
+}
+
+.forgot-password{
+
+    color:var(--primary-blue);
+
+    text-decoration:none;
+
+    font-weight:500;
+
+}
+
+.forgot-password:hover{
+
+    text-decoration:underline;
+
+}
+
+.login-footer{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+.login-footer a{
+
+    color:var(--primary-green);
+
+    font-weight:600;
+
+    text-decoration:none;
+
+}
+
+.login-footer a:hover{
+
+    text-decoration:underline;
+
+}
