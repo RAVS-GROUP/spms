@@ -212,6 +212,38 @@ if(form){
 }
 
 });
+
+/* ==========================
+   LOGIN EVENTS
+========================== */
+
+loadRememberMe();
+
+$("loginForm")?.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    if (validateLoginForm()) {
+
+        loginCandidate();
+
+    }
+
+});
+
+
+$("toggleLoginPassword")?.addEventListener("click", function () {
+
+    togglePassword(
+
+        "loginPassword",
+
+        "toggleLoginPassword"
+
+    );
+
+});
+
 /* =====================================================
    VALIDATION
 ===================================================== */
