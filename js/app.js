@@ -824,3 +824,48 @@ function loadRememberMe() {
     }
 
 }
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function checkSession(){
+
+    const candidateID =
+
+        sessionStorage.getItem("candidateID");
+
+    if(
+
+        window.location.pathname
+        .includes("dashboard.html")
+
+    ){
+
+        if(!candidateID){
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+        $("candidateName").textContent =
+
+            sessionStorage.getItem("candidateName");
+
+    }
+
+}
+
+
+function logout(){
+
+    sessionStorage.clear();
+
+    window.location.href =
+
+        "login.html";
+
+}
