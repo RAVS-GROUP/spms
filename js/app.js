@@ -210,6 +210,10 @@ if(form){
     });
 
 }
+       // Dashboard
+    checkSession();
+
+    $("logoutBtn")?.addEventListener("click", logout);
 
 });
 
