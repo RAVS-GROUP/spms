@@ -246,12 +246,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
-          // Dashboard
-    checkSession();
-
-    $("logoutBtn")?.addEventListener("click", logout);
-
-});
 
 /* =====================================================
    VALIDATION
