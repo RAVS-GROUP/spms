@@ -217,31 +217,35 @@ if(form){
    LOGIN EVENTS
 ========================== */
 
-loadRememberMe();
+document.addEventListener("DOMContentLoaded", function () {
 
-$("loginForm")?.addEventListener("submit", function (e) {
+    loadRememberMe();
 
-    e.preventDefault();
+    checkSession();
 
-    if (validateLoginForm()) {
-
-        loginCandidate();
-
-    }
-
-});
-
-
-$("toggleLoginPassword")?.addEventListener("click", function () {
-
-    togglePassword(
-
-        "loginPassword",
-
-        "toggleLoginPassword"
-
+    $("logoutBtn")?.addEventListener(
+        "click",
+        logout
     );
 
+    $("loginForm")?.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        if (validateLoginForm()) {
+
+            loginCandidate();
+
+        }
+
+    });
+
+    togglePassword(
+        "loginPassword",
+        "toggleLoginPassword"
+    );
+
+});
           // Dashboard
     checkSession();
 
