@@ -210,10 +210,6 @@ if(form){
     });
 
 }
-       // Dashboard
-    checkSession();
-
-    $("logoutBtn")?.addEventListener("click", logout);
 
 });
 
@@ -245,6 +241,11 @@ $("toggleLoginPassword")?.addEventListener("click", function () {
         "toggleLoginPassword"
 
     );
+
+          // Dashboard
+    checkSession();
+
+    $("logoutBtn")?.addEventListener("click", logout);
 
 });
 
