@@ -61,6 +61,7 @@ async function loadProfile(){
         });
 
         const result = await response.json();
+        console.log("API Result:", result);
 
         if(result.success){
 
@@ -94,6 +95,7 @@ async function loadProfile(){
  ******************************************************/
 
 function fillProfileForm(profile){
+    console.log("Profile Data:", profile);
 
     Object.keys(profile).forEach(function(key){
 
