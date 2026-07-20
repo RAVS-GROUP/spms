@@ -767,8 +767,7 @@ async function loginCandidate() {
 
             setTimeout(function () {
 
-                window.location.href =
-                    "dashboard.html";
+                window.location.href = "profile.html";
 
             }, 2000);
 
