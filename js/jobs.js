@@ -55,43 +55,75 @@ async function loadJobs(){
 
 function renderJobs(jobs){
 
-    const container=$("jobsContainer");
+    const container = $("jobsContainer");
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
     if(jobs.length===0){
 
-        container.innerHTML=
+        container.innerHTML=`
 
-        "<h3>No Jobs Available.</h3>";
+            <div class="profile-card">
+
+                <h2>No Jobs Available</h2>
+
+                <p>
+                    Currently there are no active jobs.
+                </p>
+
+            </div>
+
+        `;
 
         return;
 
     }
 
-    jobs.forEach(job=>{
+    jobs.forEach(function(job){
 
-        container.innerHTML+=`
+        container.innerHTML += `
 
         <div class="profile-card">
 
             <h2>${job.jobTitle}</h2>
 
-            <p><b>${job.companyName}</b></p>
-
-            <p>${job.city}, ${job.state}</p>
+            <h3>${job.companyName}</h3>
 
             <p>
 
-                ₹ ${job.salaryMin}
-
-                -
-
-                ₹ ${job.salaryMax}
+                📍 ${job.city}, ${job.state}
 
             </p>
 
-            <button class="btn-primary">
+            <p>
+
+                💼 ${job.experience}
+
+            </p>
+
+            <p>
+
+                🎓 ${job.qualification}
+
+            </p>
+
+            <p>
+
+                💰 ₹${job.salaryMin} - ₹${job.salaryMax}
+
+            </p>
+
+            <p>
+
+                👥 Vacancies : ${job.vacancies}
+
+            </p>
+
+            <button
+
+                class="btn-primary"
+
+                onclick="viewJob('${job.jobID}')">
 
                 View Details
 
@@ -102,5 +134,25 @@ function renderJobs(jobs){
         `;
 
     });
+
+    /******************************************************
+ * View Job
+ ******************************************************/
+
+function viewJob(jobID){
+
+    sessionStorage.setItem(
+
+        "selectedJobID",
+
+        jobID
+
+    );
+
+    window.location.href =
+
+        "job-details.html";
+
+}
 
 }
