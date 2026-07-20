@@ -2121,3 +2121,97 @@ textarea.form-control{
     text-decoration:underline;
 
 }
+
+/* ===================================
+PROFILE FORM
+=================================== */
+
+.profile-card{
+
+    background:#ffffff;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    margin-top:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.section-title{
+
+    margin-bottom:25px;
+
+}
+
+.section-title h2{
+
+    color:#0B4F6C;
+
+    margin-bottom:5px;
+
+}
+
+.section-title p{
+
+    color:#666;
+
+}
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.form-group label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+.form-group input,
+.form-group select{
+
+    padding:12px;
+
+    border:1px solid #dcdcdc;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+.form-group input:focus,
+.form-group select:focus{
+
+    border-color:#0B4F6C;
+
+    outline:none;
+
+}
+
+.form-actions{
+
+    margin-top:30px;
+
+    text-align:right;
+
+}
