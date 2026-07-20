@@ -1,50 +1,68 @@
 /******************************************************
  * Jobs Module
+ * --------------------------------------------
+ * Version 1.0
  ******************************************************/
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
 
+    // Session Check
     checkSession();
 
+    // Logout
     $("logoutBtn")?.addEventListener(
         "click",
         logout
     );
 
+    // Load Jobs
     loadJobs();
 
 });
 
 
-async function loadJobs(){
+/******************************************************
+ * LOAD JOBS
+ ******************************************************/
 
-    try{
+async function loadJobs() {
 
-        const response=await fetch(API_URL,{
+    try {
 
-            method:"POST",
+        const response = await fetch(API_URL, {
 
-            body:JSON.stringify({
+            method: "POST",
 
-                action:"getAllJobs"
+            body: JSON.stringify({
+
+                action: "getAllJobs"
 
             })
 
         });
 
-        const result=await response.json();
+        const result = await response.json();
 
-        console.log(result);
+        console.log("Jobs API Result :", result);
 
-        if(result.success){
+        if (result.success) {
 
             renderJobs(result.data.jobs);
 
         }
+        else {
+
+            $("jobsContainer").innerHTML = `
+                <div class="profile-card">
+                    <h2>Error</h2>
+                    <p>${result.message}</p>
+                </div>
+            `;
+
+        }
 
     }
-
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
@@ -53,22 +71,28 @@ async function loadJobs(){
 }
 
 
-function renderJobs(jobs){
+/******************************************************
+ * RENDER JOBS
+ ******************************************************/
+
+function renderJobs(jobs) {
 
     const container = $("jobsContainer");
 
     container.innerHTML = "";
 
-    if(jobs.length===0){
+    if (jobs.length === 0) {
 
-        container.innerHTML=`
+        container.innerHTML = `
 
             <div class="profile-card">
 
                 <h2>No Jobs Available</h2>
 
                 <p>
+
                     Currently there are no active jobs.
+
                 </p>
 
             </div>
@@ -79,7 +103,7 @@ function renderJobs(jobs){
 
     }
 
-    jobs.forEach(function(job){
+    jobs.forEach(function (job) {
 
         container.innerHTML += `
 
@@ -89,40 +113,18 @@ function renderJobs(jobs){
 
             <h3>${job.companyName}</h3>
 
-            <p>
+            <p>📍 ${job.city}, ${job.state}</p>
 
-                📍 ${job.city}, ${job.state}
+            <p>💼 Experience : ${job.experience}</p>
 
-            </p>
+            <p>🎓 Qualification : ${job.qualification}</p>
 
-            <p>
+            <p>💰 ₹${job.salaryMin} - ₹${job.salaryMax}</p>
 
-                💼 ${job.experience}
-
-            </p>
-
-            <p>
-
-                🎓 ${job.qualification}
-
-            </p>
-
-            <p>
-
-                💰 ₹${job.salaryMin} - ₹${job.salaryMax}
-
-            </p>
-
-            <p>
-
-                👥 Vacancies : ${job.vacancies}
-
-            </p>
+            <p>👥 Vacancies : ${job.vacancies}</p>
 
             <button
-
                 class="btn-primary"
-
                 onclick="viewJob('${job.jobID}')">
 
                 View Details
@@ -135,11 +137,16 @@ function renderJobs(jobs){
 
     });
 
-    /******************************************************
- * View Job
+}
+
+
+/******************************************************
+ * VIEW JOB
  ******************************************************/
 
-function viewJob(jobID){
+function viewJob(jobID) {
+
+    console.log("Selected Job :", jobID);
 
     sessionStorage.setItem(
 
@@ -149,10 +156,6 @@ function viewJob(jobID){
 
     );
 
-    window.location.href =
-
-        "job-details.html";
-
-}
+    window.location.href = "job-details.html";
 
 }
