@@ -1,19 +1,157 @@
-<main class="container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Search -->
+<head>
 
-    <section class="profile-card">
+    <meta charset="UTF-8">
 
-        <h2>Available Jobs</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <p>Browse verified opportunities.</p>
+    <title>Available Jobs | Udayan Care Placement Portal</title>
+
+    <link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+    HEADER
+    =========================== -->
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <div class="logo-section">
+
+                <img
+                    src="images/logo.png"
+                    class="logo"
+                    alt="Logo">
+
+                <div>
+
+                    <h2>Udayan Care Placement Portal</h2>
+
+                    <p>
+                        Making Young Lives Shine Through Employment
+                    </p>
+
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="profile.html">
+                    My Profile
+                </a>
+
+                <a href="jobs.html">
+                    Jobs
+                </a>
+
+                <button
+                    id="logoutBtn"
+                    class="btn-danger">
+
+                    Logout
+
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- ===========================
+    PAGE HEADER
+    =========================== -->
+
+    <section class="profile-banner">
+
+        <div class="container">
+
+            <h1>
+
+                Available Jobs
+
+            </h1>
+
+            <p>
+
+                Browse verified employment opportunities posted by employers.
+
+            </p>
+
+        </div>
 
     </section>
 
-    <!-- Jobs List -->
+    <!-- ===========================
+    MAIN CONTENT
+    =========================== -->
 
-    <div id="jobsContainer">
+    <main class="container">
 
-    </div>
+        <!-- Search Card -->
 
-</main>
+        <section class="profile-card">
+
+            <h2>
+
+                Available Jobs
+
+            </h2>
+
+            <p>
+
+                Browse verified opportunities matching your profile.
+
+            </p>
+
+        </section>
+
+        <!-- Jobs Container -->
+
+        <div id="jobsContainer">
+
+            <p>
+
+                Loading jobs...
+
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- ===========================
+    FOOTER
+    =========================== -->
+
+    <footer>
+
+        © 2026 Udayan Care Placement Portal
+
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="api/config.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/jobs.js"></script>
+
+</body>
+
+</html>
