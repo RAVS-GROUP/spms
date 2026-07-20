@@ -259,12 +259,54 @@ Apply Now
  * APPLY JOB
  ******************************************************/
 
-function applyJob(){
+async function applyJob() {
 
-    alert(
+    try {
 
-        "Apply Module Coming Next."
+        const response = await fetch(API_URL, {
 
-    );
+            method: "POST",
+
+            body: JSON.stringify({
+
+                action: "applyJob",
+
+                data: {
+
+                    jobID: sessionStorage.getItem("selectedJobID"),
+
+                    candidateID: sessionStorage.getItem("candidateID")
+
+                }
+
+            })
+
+        });
+
+        const result = await response.json();
+
+        console.log(result);
+
+        if (result.success) {
+
+            alert("🎉 Job Applied Successfully.");
+
+            window.location.href = "applications.html";
+
+        } else {
+
+            alert(result.message);
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
+
+    }
 
 }
