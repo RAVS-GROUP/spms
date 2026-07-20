@@ -65,9 +65,8 @@ async function loadProfile(){
 
         if(result.success){
 
-            fillProfileForm(
-                result.data.profile
-            );
+            fillProfileForm(result.data.profile);
+            updateProfileCompletion(result.data.profile.profileCompletion);
 
         }
         else{
