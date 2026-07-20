@@ -1,33 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>
+    <meta charset="UTF-8">
 
-Job Details
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-</title>
+    <title>Job Details | Udayan Care Placement Portal</title>
 
-<link rel="stylesheet"
+    <link rel="icon" href="images/favicon.png">
 
-href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<h1>
+<header class="header">
 
-Job Details
+    <div class="container header-container">
 
-</h1>
+        <div class="logo-section">
 
-<p>
+            <img
+                src="images/logo.png"
+                class="logo"
+                alt="Logo">
 
-Loading...
+            <div>
 
-</p>
+                <h2>Udayan Care Placement Portal</h2>
+
+                <p>
+
+                    Making Young Lives Shine Through Employment
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="profile.html">My Profile</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <button
+                id="logoutBtn"
+                class="btn-danger">
+
+                Logout
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="profile-banner">
+
+    <div class="container">
+
+        <h1>
+
+            Job Details
+
+        </h1>
+
+        <p>
+
+            View complete job information before applying.
+
+        </p>
+
+    </div>
+
+</section>
+
+<main class="container">
+
+    <div
+        id="jobDetailsContainer"
+        class="profile-card">
+
+        <h2>
+
+            Loading...
+
+        </h2>
+
+    </div>
+
+</main>
+
+<footer>
+
+    © 2026 Udayan Care Placement Portal
+
+</footer>
 
 <script src="api/config.js"></script>
 
